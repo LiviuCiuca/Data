@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=mydatabase
+
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=mydatabase
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+    ports:
+      - "8081:80"
+
+
+#referance
+#https://hub.docker.com/r/phpmyadmin/phpmyadmin
