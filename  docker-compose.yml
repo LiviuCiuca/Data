@@ -7,6 +7,7 @@ services:
       - "8080:80"
     volumes:
       - ./src:/var/www/html
+      - /workspace/Data:/data
 
   mongo:
     image: mongo
@@ -18,6 +19,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=secret
       - MYSQL_DATABASE=mydatabase
+    volumes:
+      - db_data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -27,6 +30,8 @@ services:
     ports:
       - "8081:80"
 
+volumes:
+  db_data:
 
-#referance
+#reference
 #https://hub.docker.com/r/phpmyadmin/phpmyadmin

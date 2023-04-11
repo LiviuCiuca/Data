@@ -1,15 +1,18 @@
 <?php
-$servername = "mysql";
-$username = "root";
-$password = "secret";
-$dbname = "mydatabase";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+require_once 'functions.php';
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfuly";
+// Adding an employee
+addEmployee("John Doe", 30, 1);
+
+// Adding a department
+addDepartment("Finance");
+
+// Executing SQL queries
+$queries = [
+    "SELECT * FROM EMPLOYEE",
+    "SELECT * FROM DEPARTMENT",
+    "SELECT * FROM EMPLOYEE WHERE department_id = 1"
+];
+executeMySQLQueries($queries);
 ?>
