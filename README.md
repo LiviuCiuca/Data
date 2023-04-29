@@ -1,4 +1,7 @@
-# Data
+# PHP Employee Management System
+
+This PHP Employee Management System project provides basic functionality for managing employees, departments, locations, and benefits within an organization. The project uses MySQL as the database and contains various functions to interact with the database to perform CRUD operations.
+
 # How to run 
 - right-click on "docker-compose.yml" --> click "compose up" 
 - the port 8080 is running the "index.php" 
@@ -15,9 +18,7 @@ defines four services: web (for the PHP application), mongo (for the MongoDB dat
 
 - The phpmyadmin service uses the official phpMyAdmin image and sets the PMA_HOST and PMA_PORT environment variables to connect to the mysql service.s
 
-## PHP Employee Management System
 
-This PHP Employee Management System project provides basic functionality for managing employees, departments, locations, and benefits within an organization. The project uses MySQL as the database and contains various functions to interact with the database to perform CRUD operations.
 
 ### Database Schema
 
@@ -45,7 +46,7 @@ The `functions.php` file contains the following functions for interacting with t
 - `addEmployeeBenefit()`: Adds a new employee benefit to the `EMPLOYEE_BENEFIT` table.
 - `executeMySQLQueries()`: Executes a list of SQL queries and prints the results in an HTML table format.
 
-## Usaget
+## Usage
 
 The `index.php` file demonstrates how to use the functions from `functions.php`. It includes examples of adding locations, departments, employees, and benefits, as well as executing SQL queries to display the data.
 
