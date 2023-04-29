@@ -1,0 +1,38 @@
+<?php
+require_once '../config.php';
+
+function connectDatabase() {
+    global $servername, $username, $password, $dbname;
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    return $conn;
+}
+
+$conn = connectDatabase();
+
+if (isset($_POST['submit_employee'])) {
+  $ename = $_POST['ename'];
+  $job = $_POST['job'];
+  $mgr = $_POST['mgr'] ?: null;
+  $hiredate = $_POST['hiredate'];
+  $sal = $_POST['sal'];
+  $comm = $_POST['comm'] ?: null;
+  $deptno = $_POST['deptno'];
+
+  $stmt = $conn->prepare("INSERT INTO EMPLOYEE (ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (?, ?, ?, ?, ?, ?, ?)");
+  $stmt->bind_param("ssidiii", $ename, $job, $mgr, $hiredate, $sal, $comm, $deptno);
+  
+  if ($stmt->execute()) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $stmt->error;
+  }
+
+  $stmt->close();
+  $conn->close();
+}
+?>

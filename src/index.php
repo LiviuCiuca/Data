@@ -16,14 +16,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Forms Index</title>
+  <title>Big Data</title>
 </head>
 <body>
-  <h1>Forms Index</h1>
+  <h1>Assigment 2 Big Data</h1>
   
-  <h2>Location Form</h2>
+  <?php include 'html/location.html'; ?>
   
-  <?php include 'location.html'; ?>
+  <?php include 'html/department.html'; ?>
+
+  <?php include 'html/employee.html'; ?>
+
+  <?php include 'html/benefit.html'; ?>
 
   </body>
   </html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forms Index</title>
+</head>
+<body>  
+  <h2>Location Form</h2>
+  <form action="../php/location.php" method="POST">
+    <label for="loc_name">Location Name:</label>
+    <input type="text" name="loc_name" id="loc_name" required>
+
+    <label for="address">Address:</label>
+    <input type="text" name="address" id="address" required>
+
+    <label for="country">Country:</label>
+    <input type="text" name="country" id="country" required>
+
+    <input type="submit" name="submit_location" value="Submit">
+  </form>
