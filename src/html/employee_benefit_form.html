@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Benefit Form</title>
+</head>
+<body>
+  <h1>Employee Benefit Form</h1>
+  <form action="../php/employee_benefit_form.php" method="post">
+    <label for="emp_id">Employee ID:</label>
+    <select name="emp_id" id="emp_id" required></select>
+    <br><br>
+
+    <label for="benefit_id">Benefit ID:</label>
+    <select name="benefit_id" id="benefit_id" required></select>
+    <br><br>
+
+    <input type="submit" name="submit_employee_benefit" value="Submit">
+  </form>
+
+  <script>
+    function fetchOptions(url, selectId) {
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const select = document.getElementById(selectId);
+          data.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.id + ' - ' + item.name;
+            select.appendChild(option);
+          });
+        });
+    }
+
+    fetchOptions('../php/employee_benefit_form.php?action=employees', 'emp_id');
+    fetchOptions('../php/employee_benefit_form.php?action=benefits', 'benefit_id');
+  </script>
+</body>
+</html>

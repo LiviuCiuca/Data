@@ -29,6 +29,8 @@
 
   <?php include 'html/benefit.html'; ?>
 
+  <?php include 'html/employee_benefit_form.html'; ?>
+
   </body>
   </html>
 
