@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Form</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <h1>Employee Form</h1>
+  <form action="../php/employee.php" method="post">
+    
+    <label for="ename">Employee Name</label>
+    <input type="text" name="ename" id="ename" maxlength="50" required><br><br>
+
+    <label for="job">Job</label>
+    <input type="text" name="job" id="job" maxlength="50" required><br><br>
+
+    <label for="mgr">Manager</label>
+    <input type="number" name="mgr" id="mgr"><br><br>
+
+    <label for="hiredate">Hire Date</label>
+    <input type="date" name="hiredate" id="hiredate" required><br><br>
+
+    <label for="sal">Salary</label>
+    <input type="number" name="sal" id="sal" min="0" step="0.01" required><br><br>
+
+    <label for="comm">Commission</label>
+    <input type="number" name="comm" id="comm" min="0" step="0.01"><br><br>
+
+    <label for="deptno">Department Number</label>
+    <input type="number" name="deptno" id="deptno" required><br><br>
+
+    <input type="submit" name="submit_employee" value="Submit">
+    <a type="submit" href="../index.php">
+      <button type="button">Back</button>
+    </a>
+    
+  </form>
+</body>
+</html>
+

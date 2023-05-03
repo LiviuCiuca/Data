@@ -1,28 +1,34 @@
-<?php
-require_once 'functions.php';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Big Data</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  
+  <h1>Assigment 2 Big Data</h1>
+  <div class="navbar">
+  <a href="html/location.html">Location</a>
+  <a href="html/department.html">Department</a>
+  <a href="html/employee.html">Employee</a>
+  <a href="html/benefit.html">Benefit</a>
+  <a href="html/employee_benefit_form.html">Employee Benefit Form</a>
+</div>
 
-// Adding a location
-addLocation(1, "New York");
+  
+ 
 
-// Adding a department
-addDepartment(1, "Finance", 1);
+  <?php include
+  require_once './php/displayQueries.php';
+    $queries = [
+      "SELECT * FROM EMPLOYEE",
+      "SELECT * FROM DEPARTMENT",
+      "SELECT * FROM EMPLOYEE WHERE DEPTNO = 10"
+    ];
+    executeMySQLQueries($queries);
+  ?>
 
-// Adding an employee
-$hiredate = str_replace('-', '', "2023-04-18"); // Convert the date string to "20230418"
-addEmployee(1, "John Doe", "Software Engineer", NULL, $hiredate, 60000, NULL, 1);
+  </body>
+</html>
 
-// Adding a benefit
-addBenefit(1, "Health Insurance");
-
-// Adding an employee benefit
-addEmployeeBenefit(1, 1);
-
-// Executing SQL queries
-$queries = [
-    "SELECT * FROM EMPLOYEE",
-    "SELECT * FROM DEPARTMENT",
-    "SELECT * FROM EMPLOYEE WHERE DEPTNO = 1"
-];
-executeMySQLQueries($queries);
-
-?>
