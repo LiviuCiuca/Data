@@ -65,6 +65,8 @@ if ($action === 'employees' || $action === 'benefits') {
     // Execute the prepared statement
     if ($stmt->execute()) {
         echo "New record created successfully";
+        echo '<br><br>';
+        echo '<a href="../index.php">Back</a>'; // Back button
     } else {
         echo "Error: " . $query . "<br>" . $conn->error;
     }

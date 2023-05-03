@@ -28,8 +28,11 @@ if (isset($_POST['submit_employee'])) {
   
   if ($stmt->execute()) {
     echo "New record created successfully";
+    echo '<br><br>';
+    echo '<a href="../index.php">Back</a>'; // Back button
   } else {
     echo "Error: " . $stmt->error;
+    
   }
 
   $stmt->close();

@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 require_once 'config.php';
 
@@ -54,4 +54,4 @@ function executeMySQLQueries($queries) {
     $conn->close();
 }
 
-?> -->
+?> 

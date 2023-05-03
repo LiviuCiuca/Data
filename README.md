@@ -34,20 +34,5 @@ The database schema consists of the following tables:
 
 The `config.php` file contains the database configuration, including the server name, username, password, and database name.
 
-### Functions
-
-The `functions.php` file contains the following functions for interacting with the database:
-
-- `connectDatabase()`: Connects to the MySQL database and returns the connection object.
-- `addLocation()`: Adds a new location to the `LOCATION` table.
-- `addDepartment()`: Adds a new department to the `DEPARTMENT` table.
-- `addEmployee()`: Adds a new employee to the `EMPLOYEE` table.
-- `addBenefit()`: Adds a new benefit to the `BENEFIT` table.
-- `addEmployeeBenefit()`: Adds a new employee benefit to the `EMPLOYEE_BENEFIT` table.
-- `executeMySQLQueries()`: Executes a list of SQL queries and prints the results in an HTML table format.
-
-## Usage
-
-The `index.php` file demonstrates how to use the functions from `functions.php`. It includes examples of adding locations, departments, employees, and benefits, as well as executing SQL queries to display the data.
 
 

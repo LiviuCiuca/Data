@@ -20,7 +20,7 @@
  
 
   <?php include
-  require_once 'php/displayQueries.php';
+  require_once './php/displayQueries.php';
     $queries = [
       "SELECT * FROM EMPLOYEE",
       "SELECT * FROM DEPARTMENT",

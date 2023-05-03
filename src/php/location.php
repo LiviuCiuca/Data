@@ -1,5 +1,7 @@
+<link rel="stylesheet" href="../css/style.css">
 <?php
 require_once '../config.php';
+
 
 function connectDatabase() {
     global $servername, $username, $password, $dbname;
@@ -19,10 +21,12 @@ if (isset($_POST['submit_location'])) {
     $address = $_POST['address'];
     $country = $_POST['country'];
 
-    $stmt = $conn->prepare("INSERT INTO LOCATION (LOC_NAME, ADDRESS, COUNTRY) VALUES (?, ?)");
+    $stmt = $conn->prepare("INSERT INTO LOCATION (LOC_NAME, ADDRESS, COUNTRY) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $loc_name, $address, $country);
     if ($stmt->execute()) {
-      echo "New record created successfully";
+      echo '<p> New record created successfully</p>';
+      echo '<br><br>';
+      echo '<a href="../index.php" class="back-button">Back</a>'; // Back button
     } else {
       echo "Error: " . $stmt->error;
     }

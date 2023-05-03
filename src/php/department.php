@@ -15,18 +15,20 @@ function connectDatabase() {
 $conn = connectDatabase();
 
 if (isset($_POST['submit_department'])) {
-  $dept_name = $_POST['dept_name'];
-  $loc_id = $_POST['loc_id'];
+    $dept_name = $_POST['dept_name'];
+    $loc_id = $_POST['loc_id'];
 
-  $stmt = $conn->prepare("INSERT INTO DEPARTMENT ( DEPT_NAME, LOC_ID) VALUES (?, ?)");
-  $stmt->bind_param("si", $dept_name, $loc_id);
+    $stmt = $conn->prepare("INSERT INTO DEPARTMENT ( DEPT_NAME, LOC_ID) VALUES (?, ?)");
+    $stmt->bind_param("si", $dept_name, $loc_id);
   if ($stmt->execute()) {
-  echo "New record created successfully";
+    echo "New record created successfully";
+    echo '<br><br>';
+    echo '<a href="../index.php">Back</a>'; // Back button
   } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $conn->error;
   }
   
-  $stmt->close();
+    $stmt->close();
   
   }
   ?>
