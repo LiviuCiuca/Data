@@ -3,22 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>Employee Benefit Form</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  <!-- This is the heading for the form -->
   <h1>Employee Benefit Form</h1>
+
+  <!-- Start of the form -->
   <form action="../php/employee_benefit_form.php" method="post">
-    <label for="emp_id">Employee ID:</label>
+    <!-- Employee ID label and dropdown -->
+    <label for="emp_id">Employee ID</label>
     <select name="emp_id" id="emp_id" required></select>
     <br><br>
 
-    <label for="benefit_id">Benefit ID:</label>
+    <!-- Benefit ID label and dropdown -->
+    <label for="benefit_id">Benefit ID</label>
     <select name="benefit_id" id="benefit_id" required></select>
     <br><br>
 
+    <!-- Submit button -->
     <input type="submit" name="submit_employee_benefit" value="Submit">
+    <a type="submit" href="../index.php">
+      <button type="button">Back</button>
+    </a>
   </form>
+  <!-- End of the form -->
 
   <script>
+    // Function to fetch options from the provided URL and populate the dropdown
     function fetchOptions(url, selectId) {
       fetch(url)
         .then(response => response.json())
@@ -33,7 +45,10 @@
         });
     }
 
+    // Fetching employee options and populating the emp_id dropdown
     fetchOptions('../php/employee_benefit_form.php?action=employees', 'emp_id');
+
+    // Fetching benefit options and populating the benefit_id dropdown
     fetchOptions('../php/employee_benefit_form.php?action=benefits', 'benefit_id');
   </script>
 </body>

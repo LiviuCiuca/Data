@@ -1,36 +1,34 @@
-<?php
-// require_once 'functions.php';
-
-
-
-// // Executing SQL queries
-// $queries = [
-//     "SELECT * FROM EMPLOYEE",
-//     "SELECT * FROM DEPARTMENT",
-//     "SELECT * FROM EMPLOYEE WHERE DEPTNO = 1"
-// ];
-// executeMySQLQueries($queries);
-?> 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Big Data</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+  
   <h1>Assigment 2 Big Data</h1>
+  <div class="navbar">
+  <a href="html/location.html">Location</a>
+  <a href="html/department.html">Department</a>
+  <a href="html/employee.html">Employee</a>
+  <a href="html/benefit.html">Benefit</a>
+  <a href="html/employee_benefit_form.html">Employee Benefit Form</a>
+</div>
+
   
-  <?php include 'html/location.html'; ?>
-  
-  <?php include 'html/department.html'; ?>
+ 
 
-  <?php include 'html/employee.html'; ?>
-
-  <?php include 'html/benefit.html'; ?>
-
-  <?php include 'html/employee_benefit_form.html'; ?>
+  <?php include
+  require_once 'php/displayQueries.php';
+    $queries = [
+      "SELECT * FROM EMPLOYEE",
+      "SELECT * FROM DEPARTMENT",
+      "SELECT * FROM EMPLOYEE WHERE DEPTNO = 10"
+    ];
+    executeMySQLQueries($queries);
+  ?>
 
   </body>
-  </html>
+</html>
 

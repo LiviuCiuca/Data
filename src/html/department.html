@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Department Form</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <h1>Department Form</h1>
   <form action="../php/department.php" method="post">
 
-    <label for="dept_name">Department Name:</label>
-    <input type="text" name="dept_name" id="dept_name" maxlength="50" required><br><br>
+    <label for="dept_name">Department Name</label>
+    <input type="text" name="dept_name" id="dept_name" maxlength="50" required><br>
 
-    <label for="loc_id">Location ID:</label>
+    <label for="loc_id">Location ID</label>
     <input type="number" name="loc_id" id="loc_id" required><br><br>
 
     <input type="submit" name="submit_department" value="Submit">
+    <a type="submit" href="../index.php">
+      <button type="button">Back</button>
+    </a>
   </form>
 </body>
 </html>
