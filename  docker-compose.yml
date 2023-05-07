@@ -10,9 +10,10 @@ services:
       - /workspace/Data:/data
 
   mongo:
-    image: mongo
+    image: mongo:5.0
     environment:
       - MONGO_INITDB_DATABASE=mydatabase
+      - MONGO_DB=mydatabase
 
   mysql:
     image: mysql
@@ -29,6 +30,16 @@ services:
       - PMA_PORT=3306
     ports:
       - "8081:80"
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+    ports:
+      - "8082:8081"
+    depends_on:
+      - mongo
 
 volumes:
   db_data:
