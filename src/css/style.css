@@ -96,7 +96,7 @@ p {
   max-width: 500px;
 }
 
-a.back-button {
+.back-button {
   text-decoration: none;
   padding: 10px 20px;
   background-color: #007bff;
@@ -106,6 +106,6 @@ a.back-button {
   transition: 0.3s;
 }
 
-a.back-button:hover {
+.back-button:hover {
   background-color: #0056b3;
 }

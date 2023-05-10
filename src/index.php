@@ -1,3 +1,12 @@
+<?php
+
+require_once 'config.php';
+require_once './php/displayQueries.php';
+
+// your function definitions and other PHP code here...
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,21 +23,19 @@
   <a href="html/employee.html">Employee</a>
   <a href="html/benefit.html">Benefit</a>
   <a href="html/employee_benefit_form.html">Employee Benefit Form</a>
+  <a href="html/mongo_location.html"> Test</a>
+  <a href="html/migrate.html">Mongo Migration</a>
 </div>
 
-  
- 
-
-  <?php include
-  require_once './php/displayQueries.php';
+<?php
     $queries = [
       "SELECT * FROM EMPLOYEE",
       "SELECT * FROM DEPARTMENT",
-      "SELECT * FROM EMPLOYEE WHERE DEPTNO = 10"
+      "SELECT * FROM EMPLOYEE WHERE DEPTNO = 10",
+      "SELECT * FROM EMPLOYEE_BENEFIT"
     ];
     executeMySQLQueries($queries);
   ?>
 
-  </body>
+</body>
 </html>
-

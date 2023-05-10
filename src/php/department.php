@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/style.css">
 <?php
 require_once '../config.php';
 
@@ -21,9 +22,9 @@ if (isset($_POST['submit_department'])) {
     $stmt = $conn->prepare("INSERT INTO DEPARTMENT ( DEPT_NAME, LOC_ID) VALUES (?, ?)");
     $stmt->bind_param("si", $dept_name, $loc_id);
   if ($stmt->execute()) {
-    echo "New record created successfully";
+    echo "<p>New record created successfully</p>";
     echo '<br><br>';
-    echo '<a href="../index.php">Back</a>'; // Back button
+    echo '<a href="../index.php" class="back-button">Back</a>'; // Back button
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
