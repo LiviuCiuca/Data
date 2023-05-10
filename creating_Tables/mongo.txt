@@ -1,0 +1,32 @@
+{
+  _id: ObjectId(),
+  empno: 1,
+  ename: "Employee1",
+  job: "Job1",
+  mgr: null,
+  hiredate: new Date(),
+  sal: 5000.00,
+  comm: 500.00,
+  department: {
+    dept_id: 1,
+    dept_name: "Department1",
+    location: {
+      loc_id: 1,
+      loc_name: "Location1",
+      address: "Address1"
+    }
+  },
+  benefits: [
+    {
+      benefit_id: 1,
+      benefit_name: "Benefit1",
+      description: "Description1"
+    },
+    {
+      benefit_id: 2,
+      benefit_name: "Benefit2",
+      description: "Description2"
+    }
+  ]
+}
+]);
