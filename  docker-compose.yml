@@ -20,7 +20,10 @@ services:
       - MYSQL_ROOT_PASSWORD=secret
       - MYSQL_DATABASE=mydatabase
     volumes:
+      - ./creating_Tables/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
       - db_data:/var/lib/mysql
+    command: --init-file /docker-entrypoint-initdb.d/create_tables.sql
+
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
