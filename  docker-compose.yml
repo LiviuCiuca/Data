@@ -14,6 +14,8 @@ services:
     environment:
       - MONGO_INITDB_DATABASE=mydatabase
       - MONGO_DB=mydatabase
+    volumes:
+      - mongo_data:/data/db
 
   mysql:
     image: mysql
@@ -21,7 +23,9 @@ services:
       - MYSQL_ROOT_PASSWORD=secret
       - MYSQL_DATABASE=mydatabase
     volumes:
+      - ./creating_Tables/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
       - db_data:/var/lib/mysql
+    command: --init-file=/docker-entrypoint-initdb.d/create_tables.sql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -43,6 +47,7 @@ services:
 
 volumes:
   db_data:
+  mongo_data:
 
 #reference
 #https://hub.docker.com/r/phpmyadmin/phpmyadmin

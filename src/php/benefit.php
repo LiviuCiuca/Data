@@ -17,10 +17,11 @@ $conn = connectDatabase();
 
 if (isset($_POST['submit_benefit'])) {
   $benefit_name = $_POST['benefit_name'];
+  $description = $_POST['description'];
 
-  $sql = "INSERT INTO BENEFIT (BENEFIT_NAME) VALUES (?)";
+  $sql = "INSERT INTO BENEFIT ( BENEFIT_NAME, DESCRIPTION ) VALUES (?,?)";
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param("s", $benefit_name);
+  $stmt->bind_param("ss", $benefit_name,$description);
   
   if ($stmt->execute()) {
     echo "<p>New record created successfully</p>";
