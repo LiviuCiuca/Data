@@ -2,19 +2,9 @@
 <?php
 require_once '../config.php';
 
-//muy sql connection
-function connectDatabase() {
-    global $servername, $username, $password, $dbname;
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    return $conn;
-}
-
+//mysql connection
 $conn = connectDatabase();
+
 // MongoDB connection
 $manager = new MongoDB\Driver\Manager(getenv('MONGODB_HOST'));
 $bulk = new MongoDB\Driver\BulkWrite;

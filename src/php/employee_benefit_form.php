@@ -1,19 +1,6 @@
 <?php
 require_once '../config.php';
 
-// Function to connect to the database
-function connectDatabase()
-{
-    global $servername, $username, $password, $dbname;
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    return $conn;
-}
-
 // Check if an action is specified in the URL query parameters
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
