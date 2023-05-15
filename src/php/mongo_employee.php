@@ -2,11 +2,30 @@
 <link rel="stylesheet" href="../css/style.css">
 
 <?php
-// Connect to MongoDB
-$manager = new MongoDB\Driver\Manager(getenv('MONGODB_HOST'));
+// Check if required environment variables are set
+if (!getenv('MONGODB_HOST') || !getenv('MONGODB_DB')) {
+    echo 'Error: MONGODB_HOST or MONGODB_DB environment variable is not set';
+    exit;
+}
+
+try {
+    // Connect to MongoDB
+    $manager = new MongoDB\Driver\Manager(getenv('MONGODB_HOST'));
+} catch (Exception $e) {
+    echo 'Error: Unable to connect to MongoDB: ', $e->getMessage();
+    exit;
+}
 
 // Check if the 'submit_employee' form has been submitted
 if (isset($_POST['submit_employee'])) {
+    // Check for empty fields
+    foreach ($_POST as $key => $value) {
+        if (empty($value)) {
+            echo 'Error: ' . $key . ' field is required';
+            exit;
+        }
+    }
+
     // Get the values from the form fields
     $ename = $_POST['ename'];
     $job = $_POST['job'];
@@ -18,7 +37,7 @@ if (isset($_POST['submit_employee'])) {
     $loc_id = $_POST['loc_id'];
     $loc_name = $_POST['loc_name'];
     $address = $_POST['address'];
-    $country = $_POST['country']; // I assumed this will also be added to your form
+    $country = $_POST['country'];
     $benefit_name = $_POST['benefit_name'];
     $description = $_POST['description'];
 
@@ -54,16 +73,24 @@ if (isset($_POST['submit_employee'])) {
     // Add the new document to the BulkWrite operation
     $bulk->insert($document);
 
-    // Execute the BulkWrite operation
-    $result = $manager->executeBulkWrite(getenv('MONGODB_DB') . '.employee', $bulk);
+    try {
+        // Execute the BulkWrite operation
+        $result = $manager->executeBulkWrite(getenv('MONGODB_DB') . '.employee', $bulk);
 
-    // Check the result of the BulkWrite operation
-    if ($result) {
-        echo '<p>New record created successfully</p>';
-        echo '<br><br>';
-        echo '<a href="../index.php" class="back-button">Back</a>'; // Back button
-    } else {
-        echo 'Error: Unable to create new record';
+        // Check the result of the BulkWrite operation
+        if ($result) {
+            echo '<p>New record created successfully</p>';
+            echo '<br><br>';
+            echo '<a href="../index.php" class="back-button">Back</a>'; // Back button
+        } else {
+            echo 'Error: Unable to create new record';
+        }
+    } catch (MongoDB\Driver\Exception\Exception $e) {
+        echo 'Error: Unable to execute bulk write operation: ', $e->getMessage();
     }
+} else {
+    echo 'Error: The form has not been submitted yet';
 }
 ?>
+
+
