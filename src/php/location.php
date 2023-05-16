@@ -19,7 +19,9 @@ if (isset($_POST['submit_location'])) {
         if ($stmt->execute()) {
           echo '<p> New record created successfully</p>';
           echo '<br><br>';
-          echo '<a href="../index.php" class="back-button">Back</a>'; // Back button
+          echo '<div class="container">
+                 <a href="../index.php" class="back-button">Back</a>
+                </div>'; // Back button
         } else {
           echo "Error executing statement: " . $stmt->error;
         }
