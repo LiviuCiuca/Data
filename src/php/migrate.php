@@ -60,7 +60,9 @@ if ($result->num_rows > 0) {
 }
 
 echo '<br><br>';
-echo '<a href="../index.php" class="back-button">Back</a>'; // Back button
+echo '<div class="container">
+<a href="../index.php" class="back-button">Back</a>
+</div>'; // Back button
 
 $manager->executeBulkWrite('ourDatabase.employee', $bulk);
 

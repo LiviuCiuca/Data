@@ -49,6 +49,9 @@ require_once '../config.php';
       }
 
       $conn->close();
+      echo '<div class="container">
+      <a href="../index.php" class="back-button">Back</a>
+     </div>'; // Back button
   }
 
   $queries = [
