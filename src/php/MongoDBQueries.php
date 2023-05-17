@@ -56,50 +56,36 @@ function executeMongoDBQueries($manager, $queries)
     } catch (Exception $e) {
         echo "Error executing query: " . $e->getMessage() . "<br>\n";
     }
+    echo '<div class="container">
+      <a href="../index.php" class="back-button">Back</a>
+     </div>'; // Back button
 }
 
 $queries = [
-    // Query 1
-    (object) [
-        'db' => 'ourDatabase',
-        'collection' => 'employee',
-        'query' => new MongoDB\Driver\Query(
-            [],
-            [
-                'sort' => ['_id' => 1],
-                'projection' => [
-                    '_id' => 1,
-                    'empno' => 1,
-                    'ename' => 1,
-                    'job' => 1,
-                    'mgr' => 1,
-                    'hiredate' => 1,
-                    'sal' => 1,
-                    'comm' => 1,
-                    'department' => 1,
-                    'benefits' => 1
-                ],
-            ]
-        ),
+   // Query 1
+(object) [
+    'db' => 'ourDatabase',
+    'collection' => 'employee',
+    'query' => new MongoDB\Driver\Query(
+    ['benefits.benefit_name' => 'Health Insurance'],
+    [
+    'sort' => ['sal' => -1],
+    'projection' => [
+    '_id' => 1,
+    'empno' => 1,
+    'ename' => 1,
+    'job' => 1,
+    'mgr' => 1,
+    'hiredate' => 1,
+    'sal' => 1,
+    'comm' => 1,
+    'department' => 1,
+    'benefits' => 1
+    ],
+    ]
+    ),
     ],
     // Query 2
-    (object) [
-        'db' => 'ourDatabase',
-        'collection' => 'employee',
-        'query' => new MongoDB\Driver\Query(
-            ['sal' => ['$gt' => 3500]],
-            [
-                'sort' => ['sal' => -1],
-                'projection' => [
-                    '_id' => 1,
-                    'ename' => 1,
-                    'sal' => 1,
-                    'department' => 1
-                ],
-            ]
-        ),
-    ],
-    // Query 3
     (object) [
         'db' => 'ourDatabase',
         'collection' => 'employee',
