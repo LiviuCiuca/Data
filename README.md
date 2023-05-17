@@ -1,10 +1,14 @@
 # PHP Employee Management System
 
-This PHP Employee Management System project provides basic functionality for managing employees, departments, locations, and benefits within an organization. The project uses MySQL as the database and contains various functions to interact with the database to perform CRUD operations.
+This PHP Employee Management System project provides basic functionality for managing employees, departments, locations, and benefits within an organization. The project uses MySQL as the database and contains various functions to interact with the database to perform operations, then migrate the data into a mongo database and perform and display 2 queries.
 
 # How to run 
 - right-click on "docker-compose.yml" --> click "compose up" 
-- the port 8080 is running the "index.php" 
+- the port 8080 is running the "index.php" <br/>
+or to run it from the terminal we use the command :
+```bash
+$docker-compose up
+```
 
 # Other
 ## docker-compose.yml 
@@ -20,7 +24,7 @@ defines four services: web (for the PHP application), mongo (for the MongoDB dat
 
 
 
-### Database Schema
+### MySql Database Schema
 
 The database schema consists of the following tables:
 
@@ -32,7 +36,4 @@ The database schema consists of the following tables:
 
 ### Configuration
 
-The `config.php` file contains the database configuration, including the server name, username, password, and database name.
-
-
-
+The `config.php` file contains the Mysql database configuration, including the server name, username, password, and database name.
