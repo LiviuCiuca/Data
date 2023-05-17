@@ -17,7 +17,7 @@ require_once '../config.php';
           $result = $conn->query($query);
 
           if ($result) {
-              echo "<h3>Query executed: $query</h3>\n";
+              echo "<h3>Query executed : $query</h3>\n";
               if ($result->num_rows > 0) {
                   // Print the data in an HTML table
                   echo "<table>\n";

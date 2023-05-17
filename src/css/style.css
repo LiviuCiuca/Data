@@ -122,7 +122,6 @@ p {
 .back-button:hover {
   background-color: #0056b3;
 }
-
 table {
   border-collapse: collapse;
   width: 90%; /* Set width to 90% */
@@ -135,5 +134,5 @@ table {
 th, td {
   border: 1px solid #007bff; /* Set blue border */
   padding: 8px;
-  text-align: center;
+  text-align: left;
 }
