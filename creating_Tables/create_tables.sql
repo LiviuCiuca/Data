@@ -5,6 +5,7 @@ CREATE TABLE LOCATION (
   COUNTRY VARCHAR(50)
 );
 
+
 CREATE TABLE DEPARTMENT (
   DEPT_ID INT AUTO_INCREMENT PRIMARY KEY,
   DEPT_NAME VARCHAR(50),
@@ -24,6 +25,7 @@ CREATE TABLE EMPLOYEE (
   FOREIGN KEY (DEPTNO) REFERENCES DEPARTMENT(DEPT_ID)
 );
 
+
 CREATE TABLE BENEFIT (
   BENEFIT_ID INT AUTO_INCREMENT PRIMARY KEY,
   BENEFIT_NAME VARCHAR(50),
@@ -40,15 +42,15 @@ CREATE TABLE EMPLOYEE_BENEFIT (
 
 
 -- Insert data into the LOCATION table
-INSERT INTO LOCATION (LOC_NAME, ADDRESS)
+INSERT INTO LOCATION (LOC_NAME, ADDRESS, COUNTRY)
 VALUES
-  ('New York Office', '123 Main St, New York, USA'),
-  ('London Office', '456 Park Lane, London, UK'),
-  ('San Francisco Office', '789 Elm Street, San Francisco, USA'),
-  ('Tokyo Office', '10 Sakura Avenue, Tokyo, Japan'),
-  ('Sydney Office', '555 Ocean Road, Sydney, Australia'),
-  ('Berlin Office', '987 Lindenstrasse, Berlin, Germany'),
-  ('Toronto Office', '321 Maple Avenue, Toronto, Canada');
+  ('New York Office', '123 Main St, New York, USA', 'USA'),
+  ('London Office', '456 Park Lane, London, UK', 'UK'),
+  ('San Francisco Office', '789 Elm Street, San Francisco, USA', 'USA'),
+  ('Tokyo Office', '10 Sakura Avenue, Tokyo, Japan', 'Japan'),
+  ('Sydney Office', '555 Ocean Road, Sydney, Australia', 'Australia'),
+  ('Berlin Office', '987 Lindenstrasse, Berlin, Germany', 'Germany'),
+  ('Toronto Office', '321 Maple Avenue, Toronto, Canada', 'Canada');
 
 -- Insert data into the DEPARTMENT table
 INSERT INTO DEPARTMENT (DEPT_NAME, LOC_ID)
@@ -75,6 +77,7 @@ VALUES
   ('Daniel Thompson', 'Finance Analyst', 5, '2022-09-01', 3800.00, NULL, 5),
   ('Sophia Lee', 'Operations Coordinator', 6, '2022-10-01', 3200.00, NULL, 6),
   ('William Clark', 'Customer Support Representative', 7, '2022-11-01', 2800.00, NULL, 7);
+
 
 -- Insert data into the BENEFIT table
 INSERT INTO BENEFIT (BENEFIT_NAME, DESCRIPTION)
@@ -104,11 +107,6 @@ VALUES
   (9, 1),
   (9, 2),
   (10, 1),
-  (10, 3),
-  (11, 1),
-  (11, 3),
-  (11, 4),
-  (12, 1),
-  (12, 2);
+  (10, 3);
  
 
