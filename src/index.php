@@ -23,7 +23,7 @@ require_once 'config.php';
   <a href="html/migrate.html">Mongo Migration</a>
   <a href="html/mongo_employee.html"> Mongo Employee</a>
   <a href="php/displayQueries.php"> MySQL Queries</a>
- 
+  <a href="php/MongoDBQueries.php"> MongoDB Queries</a>
 </div>
 
 
