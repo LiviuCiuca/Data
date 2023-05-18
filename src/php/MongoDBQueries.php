@@ -62,38 +62,42 @@ function executeMongoDBQueries($manager, $queries)
 }
 
 $queries = [
-   // Query 1
-(object) [
-    'db' => 'ourDatabase',
-    'collection' => 'employee',
-    'query' => new MongoDB\Driver\Query(
-    ['benefits.benefit_name' => 'Health Insurance'],
-    [
-    'sort' => ['sal' => -1],
-    'projection' => [
-    '_id' => 1,
-    'empno' => 1,
-    'ename' => 1,
-    'job' => 1,
-    'mgr' => 1,
-    'hiredate' => 1,
-    'sal' => 1,
-    'comm' => 1,
-    'department' => 1,
-    'benefits' => 1
-    ],
-    ]
+    // Query 1
+    (object) [
+        'db' => 'ourDatabase',
+        'collection' => 'employee',
+        'query' => new MongoDB\Driver\Query(
+        //Fillters for employees with helath insurance
+            ['benefits.benefit_name' => 'Health Insurance'], 
+        [
+            //Sorts by salary in descending order
+            'sort' => ['sal' => -1],
+            'projection' => [ // fields to include in the result
+                '_id' => 1,
+                'empno' => 1,
+                'ename' => 1,
+                'job' => 1,
+                'mgr' => 1,
+                'hiredate' => 1,
+                'sal' => 1,
+                'comm' => 1,
+                'department' => 1,
+                'benefits' => 1
+            ],
+        ]
     ),
-    ],
+],
     // Query 2
     (object) [
         'db' => 'ourDatabase',
         'collection' => 'employee',
         'query' => new MongoDB\Driver\Query(
+            //Fillters by job type 
             ['job' => ['$in' => ['Manager', 'Software Engineer']]],
             [
+                //sorts by job and hire date
                 'sort' => ['job' => 1, 'hiredate' => 1],
-                'projection' => [
+                'projection' => [// fields to include in the result
                     '_id' => 1,
                     'ename' => 1,
                     'job' => 1,
