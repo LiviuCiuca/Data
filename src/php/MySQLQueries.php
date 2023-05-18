@@ -55,13 +55,15 @@ require_once '../config.php';
   }
 
   $queries = [
-    // Query 1
+    // Query 1 Joins 4 tables to get employee's name, department, job and benefits
     "SELECT E.ENAME, D.DEPT_NAME, E.JOB, B.BENEFIT_NAME
     FROM EMPLOYEE E
     INNER JOIN DEPARTMENT D ON E.DEPTNO = D.DEPT_ID
     INNER JOIN EMPLOYEE_BENEFIT EB ON E.EMPNO = EB.EMP_ID
     INNER JOIN BENEFIT B ON EB.BENEFIT_ID = B.BENEFIT_ID;
     ",
+
+    // Query 2 Aggregates number, salary and average commission of employess by department and location
     "SELECT
     d.DEPT_NAME,
     l.LOC_NAME,
@@ -78,7 +80,7 @@ require_once '../config.php';
   ORDER BY
     total_salary DESC;",
 
-
+    // Query 3 Lists employees that are in the top 3 sallries in their departments
     "SELECT
     e.ENAME,
     e.JOB,
