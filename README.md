@@ -37,3 +37,7 @@ The database schema consists of the following tables:
 ### Configuration
 
 The `config.php` file contains the Mysql database configuration, including the server name, username, password, and database name.
+
+### Video Demonstration 
+
+https://cccu-my.sharepoint.com/:v:/g/personal/mj351_canterbury_ac_uk/EflToIWtjr5Bgyi6RRAmNm0BMhccuA-tFuwNSgKIE1ym4Q?e=ZdSwVl
